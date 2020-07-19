@@ -1,5 +1,6 @@
 import database as db
 from fastapi import FastAPI
+from fastapi.responses import JSONResponse
 
 
 app = FastAPI()
@@ -12,9 +13,9 @@ async def root():
 
 @app.get("/courses")
 async def courses():
-    return db.list_courses()
+    return JSONResponse(db.list_courses())
 
 
 @app.get("/course")
 async def course(name: str):
-    return db.fetch_course(name)  # type: ignore
+    return JSONResponse(db.fetch_course(name))  # type: ignore

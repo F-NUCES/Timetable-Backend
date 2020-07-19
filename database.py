@@ -25,18 +25,16 @@ class CoursesInfo(db.Entity):
 
 
 @db_session
-# noqa: F821
 def list_courses():
     query = select(c.name for c in Courses)
-    return json.dumps({"courses": list(query)})
+    return [{num: i} for num, i in enumerate(query)]
 
 
 @db_session
-# noqa: F821
 def fetch_course(name):
     query = select(c for c in Courses if c.name == name)
     result = list(map(lambda x: x.to_dict(), query))
-    return json.dumps(result)
+    return result
 
 
 def db_init(fn="latest.db"):
