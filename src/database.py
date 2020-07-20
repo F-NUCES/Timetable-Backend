@@ -15,6 +15,7 @@ class Courses(db.Entity):
     end_time = Required(str)
     room = Required(str)
     day = Required(str)
+    semester = Required(str)
 
 
 class CoursesInfo(db.Entity):
