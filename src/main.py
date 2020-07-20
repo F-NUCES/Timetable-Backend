@@ -10,6 +10,8 @@ app = FastAPI()
 origins = [
     "http://localhost",
     "http://localhost:8080",
+    "http://timetable.mrafay.me:5000",
+    "http://timetable.mrafay.me"
 ]
 
 app.add_middleware(
