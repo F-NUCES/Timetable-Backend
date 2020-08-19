@@ -27,13 +27,13 @@ class CourseTitle(db.Entity):
 
 @db_session
 def list_courses():
-    query = select(c.name for c in Courses)
+    query = select(c.name for c in CourseTitle)
     return [{num: i} for num, i in enumerate(query)]
 
 
 @db_session
 def fetch_course(name):
-    query = select(c for c in Courses if c.name == name)
+    query = select(c for c in DBCourses if c.name == name)
     result = list(map(lambda x: x.to_dict(), query))
     return result
 
