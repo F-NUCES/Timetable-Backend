@@ -8,7 +8,7 @@ from pony.orm import *
 db = Database()
 
 
-class Courses(db.Entity):
+class DBCourses(db.Entity):
     name = Required(str)
     section = Required(str)
     start_time = Required(str)
@@ -18,7 +18,7 @@ class Courses(db.Entity):
     semester = Required(str)
 
 
-class CoursesInfo(db.Entity):
+class CourseTitle(db.Entity):
     name = Required(str)
 
 
